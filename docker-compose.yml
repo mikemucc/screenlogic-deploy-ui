@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+    slapi:
+        image: michaelmucciarone/screenlogic-api:latest
+        ports:
+            - "9002:3000"
+            - target: 1444
+              published: 1444
+              protocol: udp
+              mode: host
+        restart: on-failure
+        environment:
+            - SL_IP_ADDRESS
+            - SL_PORT
+        
+    sl-frontend:
+        image: michaelmucciarone/screenlogic-ui:latest
+        restart: on-failure
+        environment:
+            API_BASE_URL: http://<local IP or FQDN>:9002/api
+        ports:
+            - "9001:80"
+        
