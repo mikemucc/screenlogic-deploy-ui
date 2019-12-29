@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
     slapi:
-        image: michaelmucciarone/screenlogic-api:latest
+        image: $API_IMAGE
         ports:
             - "9002:3000"
             - target: 1444
@@ -15,10 +15,10 @@ services:
             - SL_PORT
         
     sl-frontend:
-        image: michaelmucciarone/screenlogic-ui:latest
+        image: $UI_IMAGE
         restart: on-failure
         environment:
-            API_BASE_URL: http://<local IP or FQDN>:9002/api
+            API_BASE_URL: http://$SERVER_ADDRESS:9002/api
         ports:
             - "9001:80"
         

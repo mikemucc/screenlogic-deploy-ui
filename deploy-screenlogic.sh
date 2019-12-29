@@ -2,6 +2,14 @@
 # Clean out any old containers
 docker-compose down
 
+export API_IMAGE="michaelmucciarone/screenlogic-api:latest"
+export UI_IMAGE="michaelmucciarone/screenlogic-ui:latest"
+export SERVER_ADDRESS=""
+
+
+docker pull $API_IMAGE
+docker pull $UI_IMAGE
+
 export tempSL=$(docker run -it --rm --net=host michaelmucciarone/screenlogic-api:latest find-sl.js)
 
 echo Screenlogic found at $tempSL
