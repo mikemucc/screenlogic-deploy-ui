@@ -1,4 +1,6 @@
 #!/bin/bash
+# Clean out any old containers
+docker-compose down
 
 export tempSL=$(docker run -it --rm --net=host michaelmucciarone/screenlogic-api:latest find-sl.js)
 
