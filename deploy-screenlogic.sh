@@ -6,4 +6,4 @@ echo Screenlogic found at $tempSL
 export SL_IP_ADDRESS=$(echo $tempSL | cut -d ':' -f 1)
 export SL_PORT=$(echo $tempSL | cut -d ':' -f 2)
 
-docker-compose up
+docker-compose up -d
