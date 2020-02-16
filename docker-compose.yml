@@ -9,14 +9,14 @@ services:
               published: 1444
               protocol: udp
               mode: host
-        restart: on-failure
+        restart: always
         environment:
             - SL_IP_ADDRESS
             - SL_PORT
         
     sl-frontend:
         image: $UI_IMAGE
-        restart: on-failure
+        restart: always
         environment:
             API_BASE_URL: http://$SERVER_ADDRESS:9002/api
         ports:
