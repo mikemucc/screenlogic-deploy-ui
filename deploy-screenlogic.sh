@@ -1,14 +1,12 @@
 #!/bin/bash
 # Clean out any old containers
+export API_IMAGE="michaelmucciarone/screenlogic-api:latest"
+export UI_IMAGE="michaelmucciarone/screenlogic-ui:latest"
+
 docker-compose down
 # SERVER_ADDRESS should be the fqdn or ip address of the server these will be running on
 # The docker-compose file will run both containers on the same machine on different ports
 export SERVER_ADDRESS=""
-
-export API_IMAGE="michaelmucciarone/screenlogic-api:latest"
-export UI_IMAGE="michaelmucciarone/screenlogic-ui:latest"
-
-
 
 docker pull $API_IMAGE
 docker pull $UI_IMAGE
